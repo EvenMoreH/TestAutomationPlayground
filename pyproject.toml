@@ -1,0 +1,23 @@
+[project]
+name = "testautomationplayground"
+version = "0.1.0"
+description = "UI Test Automation Playground - Python Selenium & Playwright exercises"
+requires-python = ">=3.12"
+dependencies = [
+    "pytest",
+    "selenium",
+    "playwright",
+    "pytest-playwright",
+]
+
+[tool.pytest.ini_options]
+# Discover tests in all nested folders matching these patterns
+testpaths = ["."]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+# Markers to selectively run Selenium or Playwright tests
+markers = [
+    "selenium: Selenium WebDriver tests",
+    "playwright: Playwright tests",
+]
