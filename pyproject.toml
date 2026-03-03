@@ -12,7 +12,7 @@ dependencies = [
 
 [tool.pytest.ini_options]
 # Discover tests in all nested folders matching these patterns
-testpaths = ["."]
+testpaths = ["exercises"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
