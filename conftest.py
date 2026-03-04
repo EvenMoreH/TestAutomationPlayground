@@ -17,10 +17,12 @@ def driver():
     """Create a Selenium Chrome WebDriver instance for each test."""
     options = webdriver.ChromeOptions()
     options.add_argument("--start-maximized")
+    options.add_argument("--incognito")
     # options.add_argument("--headless=new")
 
     driver = webdriver.Chrome(options=options)
-    driver.implicitly_wait(5)
+    # Prefer explicit waits in page objects/helpers for predictable timing.
+    driver.implicitly_wait(0)
 
     yield driver
 
