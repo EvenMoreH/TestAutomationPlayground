@@ -7,4 +7,4 @@ def test_dynamic_id_selenium(driver: WebDriver):
 
     driver.get("http://uitestingplayground.com/dynamicid")
 
-    dynamic_id_page.click_button(5)
+    dynamic_id_page.click_button()
