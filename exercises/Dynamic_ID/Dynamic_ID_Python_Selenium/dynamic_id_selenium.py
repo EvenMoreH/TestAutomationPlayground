@@ -9,6 +9,9 @@ class DynamicIDPage:
     def __init__(self, driver: WebDriver):
         self.driver = driver
 
+    def _wait(self, timeout: int = 5):
+        return WebDriverWait(self.driver, timeout)
+
     def click_button(self):
-        button = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(self.BUTTON_WITH_DYNAMIC_ID))
+        button = self._wait(3).until(EC.element_to_be_clickable(self.BUTTON_WITH_DYNAMIC_ID))
         button.click()

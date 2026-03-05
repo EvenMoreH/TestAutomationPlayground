@@ -5,20 +5,29 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class ClassAttributePage:
     BUTTON_PRIMARY = (By.CLASS_NAME, "btn-primary")
-    BUTTON_PRIMARY_CSS = (By.CSS_SELECTOR, "[class*='primary']")
-    BUTTON_PRIMARY_XPATH = (By.XPATH, "//*[contains(@class, 'primary')]")
-    BUTTON_WARNING = ""
-    BUTTON_SUCCESS = ""
+    BUTTON_WARNING = (By.CSS_SELECTOR, "[class*='success']")
+    BUTTON_SUCCESS = (By.XPATH, "//*[contains(@class, 'warning')]")
 
     def __init__(self, driver: WebDriver):
         self.driver = driver
 
+    def _wait(self, timeout: int = 5):
+        return WebDriverWait(self.driver, timeout)
+
     def click_button_primary(self):
-        button_primary = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(self.BUTTON_PRIMARY))
+        button_primary = self._wait(3).until(EC.element_to_be_clickable(self.BUTTON_PRIMARY))
         button_primary.click()
 
+    def click_button_warning(self):
+        button_warning = self._wait(3).until(EC.element_to_be_clickable(self.BUTTON_WARNING))
+        button_warning.click()
+
+    def click_button_success(self):
+        button_success = self._wait(3).until(EC.element_to_be_clickable(self.BUTTON_SUCCESS))
+        button_success.click()
+
     def accept_alert(self) -> str:
-        alert = WebDriverWait(self.driver, 5).until(EC.alert_is_present())
+        alert = self._wait(3).until(EC.alert_is_present())
         text = alert.text
         alert.accept()
-        print(f"Alert message: '{text}'")
+        return text

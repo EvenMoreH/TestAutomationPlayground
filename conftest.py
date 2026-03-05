@@ -18,6 +18,8 @@ def driver():
     options = webdriver.ChromeOptions()
     options.add_argument("--start-maximized")
     options.add_argument("--incognito")
+    options.set_capability("acceptInsecureCerts", True)
+    options.add_argument("--ignore-certificate-errors")
     # options.add_argument("--headless=new")
 
     driver = webdriver.Chrome(options=options)

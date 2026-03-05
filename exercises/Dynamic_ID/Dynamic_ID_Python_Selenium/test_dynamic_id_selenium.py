@@ -1,4 +1,3 @@
-import pytest
 from selenium.webdriver.remote.webdriver import WebDriver
 from dynamic_id_selenium import DynamicIDPage
 
