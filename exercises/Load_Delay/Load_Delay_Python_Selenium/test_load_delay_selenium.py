@@ -1,6 +1,5 @@
-import pytest
 from selenium.webdriver.remote.webdriver import WebDriver
-from load_delay_selenium_main_page import MainPage
+from _Main_Page.main_page import MainPage
 from load_delay_selenium import LoadDelayPage
 
 def test_delayed_button_click(driver: WebDriver):
