@@ -23,18 +23,31 @@ class VisibilityPage:
         hide_btn = self._wait().until(EC.element_to_be_clickable(self.HIDE_BTN))
         hide_btn.click()
 
-    def is_invisible_removed_btn(self):
+    def is_invisible_removed_btn(self) -> bool:
         removed_btn = self._wait().until(EC.invisibility_of_element_located(self.REMOVED_BTN))
         return removed_btn
 
-    def is_invisible_zero_width_btn(self):
-        pass
+    def is_invisible_zero_width_btn(self) -> bool:
+        zero_width = self._wait().until(EC.invisibility_of_element_located(self.ZERO_W_BUTTON))
+        if zero_width == True:
+            return True
+        elif zero_width != False and zero_width != None:
+            return True
+        else:
+            return False
 
     def is_invisible_overlapped_btn(self):
         pass
 
-    def is_invisible_opacity_zero_btn(self):
-        pass
+    def is_invisible_opacity_zero_btn(self) -> bool:
+        zero_opacity = self._wait().until(EC.invisibility_of_element_located(self.OPACITY_ZERO_BTN))
+        if zero_opacity == True:
+            return True
+        elif zero_opacity != False and zero_opacity != None:
+            return True
+        else:
+            return False
+
 
     def is_invisible_visibility_hidden_btn(self):
         pass
