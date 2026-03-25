@@ -37,7 +37,30 @@ class VisibilityPage:
             return False
 
     def is_invisible_overlapped_btn(self):
-        pass
+        overlapped_button = self.driver.find_element(*self.OVERLAPPED_BTN)
+
+        if not overlapped_button.is_displayed():
+            return True
+
+        rect = overlapped_button.rect
+        if rect["width"] == 0 or rect["height"] == 0:
+            return True
+
+        center_x = rect["x"] + rect["width"] / 2
+        center_y = rect["y"] + rect["height"] / 2
+
+        top_element = self.driver.execute_script(
+            "return document.elementFromPoint(arguments[0], arguments[1]);", center_x, center_y)
+
+        if top_element is None:
+            return True
+
+        is_covered = self.driver.execute_script(
+            "return arguments[0] === arguments[1] || arguments[0].contains(arguments[1]);", overlapped_button, top_element)
+
+        if is_covered:
+            return False
+        return True
 
     def is_invisible_opacity_zero_btn(self) -> bool:
         zero_opacity = self._wait().until(EC.invisibility_of_element_located(self.OPACITY_ZERO_BTN))

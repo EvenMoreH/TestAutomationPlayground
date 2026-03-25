@@ -25,7 +25,8 @@ def test_overlapped_btn_visibility_selenium(driver: WebDriver):
     driver.get("http://uitestingplayground.com/visibility")
 
     visibility_page.hide_btn_click()
-    pass
+    is_invisible= visibility_page.is_invisible_overlapped_btn()
+    assert is_invisible == True
 
 def test_opacity_zero_btn_visibility_selenium(driver: WebDriver):
     visibility_page = VisibilityPage(driver)
