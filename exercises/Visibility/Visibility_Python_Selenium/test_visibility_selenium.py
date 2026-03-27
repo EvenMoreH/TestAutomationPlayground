@@ -43,7 +43,8 @@ def test_visibility_hidden_btn_visibility_selenium(driver: WebDriver):
     driver.get("http://uitestingplayground.com/visibility")
 
     visibility_page.hide_btn_click()
-    pass
+    is_invisible = visibility_page.is_invisible_visibility_hidden_btn()
+    assert is_invisible == True
 
 def test_none_btn_visibility_selenium(driver: WebDriver):
     visibility_page = VisibilityPage(driver)

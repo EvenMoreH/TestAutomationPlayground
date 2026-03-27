@@ -17,6 +17,9 @@ wheels/
 .vscode/
 *.code-workspace
 
+# Agent instructions
+.github/instructions/
+
 # Java build output
 target/
 

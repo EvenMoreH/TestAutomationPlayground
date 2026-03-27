@@ -71,9 +71,9 @@ class VisibilityPage:
         else:
             return False
 
-
-    def is_invisible_visibility_hidden_btn(self):
-        pass
+    def is_invisible_visibility_hidden_btn(self) -> bool:
+        visibility_hidden = self._wait().until(EC.invisibility_of_element_located(self.VISIBILITY_HIDDEN_BTN))
+        return bool(visibility_hidden)
 
     def is_invisible_none_btn(self):
         pass
