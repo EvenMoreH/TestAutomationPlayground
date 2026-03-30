@@ -3,6 +3,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 class VisibilityPage:
     HIDE_BTN = (By.ID, "hideButton")
     REMOVED_BTN = (By.ID, "removedButton")
@@ -19,15 +20,18 @@ class VisibilityPage:
     def _wait(self, timeout: int = 5):
         return WebDriverWait(self.driver, timeout)
 
-    def hide_btn_click(self):
+    def hide_btn_click(self) -> None:
+        """Click the Hide button to reveal the visibility scenarios."""
         hide_btn = self._wait().until(EC.element_to_be_clickable(self.HIDE_BTN))
         hide_btn.click()
 
     def is_invisible_removed_btn(self) -> bool:
+        """Return True when the removed button is no longer visible."""
         removed_btn = self._wait().until(EC.invisibility_of_element_located(self.REMOVED_BTN))
         return removed_btn
 
     def is_invisible_zero_width_btn(self) -> bool:
+        """Return True when the zero-width button is not visible."""
         zero_width = self._wait().until(EC.invisibility_of_element_located(self.ZERO_W_BUTTON))
         if zero_width == True:
             return True
@@ -36,7 +40,8 @@ class VisibilityPage:
         else:
             return False
 
-    def is_invisible_overlapped_btn(self):
+    def is_invisible_overlapped_btn(self) -> bool:
+        """Return True when the overlapped button is hidden by another element."""
         overlapped_button = self.driver.find_element(*self.OVERLAPPED_BTN)
 
         if not overlapped_button.is_displayed():
@@ -63,6 +68,7 @@ class VisibilityPage:
         return True
 
     def is_invisible_opacity_zero_btn(self) -> bool:
+        """Return True when the opacity-zero button is not visible."""
         zero_opacity = self._wait().until(EC.invisibility_of_element_located(self.OPACITY_ZERO_BTN))
         if zero_opacity == True:
             return True
@@ -72,12 +78,31 @@ class VisibilityPage:
             return False
 
     def is_invisible_visibility_hidden_btn(self) -> bool:
+        """Return True when the visibility-hidden button is not visible."""
         visibility_hidden = self._wait().until(EC.invisibility_of_element_located(self.VISIBILITY_HIDDEN_BTN))
         return bool(visibility_hidden)
 
-    def is_invisible_none_btn(self):
-        pass
+    def is_invisible_none_btn(self) -> bool:
+        """Return True when the display-none button is not visible."""
+        display_none = self._wait().until(EC.invisibility_of_element_located(self.NONE_BTN))
+        return bool(display_none)
 
-    def is_invisible_offscreen_btn(self):
-        pass
+    def is_invisible_offscreen_btn(self) -> bool:
+        """Return True when the offscreen button is fully outside the viewport."""
+        offscreen_button = self.driver.find_element(*self.OFFSCREEN_BTN)
 
+        return self.driver.execute_script(
+            """
+            const rect = arguments[0].getBoundingClientRect();
+            const viewWidth = window.innerWidth || document.documentElement.clientWidth;
+            const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            return !(
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= viewHeight &&
+                rect.right <= viewWidth
+            );
+            """,
+            offscreen_button,
+        )
