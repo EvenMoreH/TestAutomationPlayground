@@ -26,22 +26,17 @@ class VisibilityPage:
         hide_btn.click()
 
     def is_invisible_removed_btn(self) -> bool:
-        """Return True when the removed button is no longer visible."""
-        removed_btn = self._wait().until(EC.invisibility_of_element_located(self.REMOVED_BTN))
-        return removed_btn
+        """Verify the removed button is not visible."""
+        self._wait().until(EC.invisibility_of_element_located(self.REMOVED_BTN))
+        return True
 
     def is_invisible_zero_width_btn(self) -> bool:
-        """Return True when the zero-width button is not visible."""
-        zero_width = self._wait().until(EC.invisibility_of_element_located(self.ZERO_W_BUTTON))
-        if zero_width == True:
-            return True
-        elif zero_width != False and zero_width != None:
-            return True
-        else:
-            return False
+        """Verify the zero-width button is not visible."""
+        self._wait().until(EC.invisibility_of_element_located(self.ZERO_W_BUTTON))
+        return True
 
     def is_invisible_overlapped_btn(self) -> bool:
-        """Return True when the overlapped button is hidden by another element."""
+        """Verify the overlapped button is not visible."""
         overlapped_button = self.driver.find_element(*self.OVERLAPPED_BTN)
 
         if not overlapped_button.is_displayed():
@@ -68,27 +63,22 @@ class VisibilityPage:
         return True
 
     def is_invisible_opacity_zero_btn(self) -> bool:
-        """Return True when the opacity-zero button is not visible."""
-        zero_opacity = self._wait().until(EC.invisibility_of_element_located(self.OPACITY_ZERO_BTN))
-        if zero_opacity == True:
-            return True
-        elif zero_opacity != False and zero_opacity != None:
-            return True
-        else:
-            return False
+        """Verify the opacity-zero button is not visible."""
+        self._wait().until(EC.invisibility_of_element_located(self.OPACITY_ZERO_BTN))
+        return True
 
     def is_invisible_visibility_hidden_btn(self) -> bool:
-        """Return True when the visibility-hidden button is not visible."""
-        visibility_hidden = self._wait().until(EC.invisibility_of_element_located(self.VISIBILITY_HIDDEN_BTN))
-        return bool(visibility_hidden)
+        """Verify the visibility-hidden button is not visible."""
+        self._wait().until(EC.invisibility_of_element_located(self.VISIBILITY_HIDDEN_BTN))
+        return True
 
     def is_invisible_none_btn(self) -> bool:
-        """Return True when the display-none button is not visible."""
-        display_none = self._wait().until(EC.invisibility_of_element_located(self.NONE_BTN))
-        return bool(display_none)
+        """Verify the display-none button is not visible."""
+        self._wait().until(EC.invisibility_of_element_located(self.NONE_BTN))
+        return True
 
     def is_invisible_offscreen_btn(self) -> bool:
-        """Return True when the offscreen button is fully outside the viewport."""
+        """Verify the offscreen button is not fully within viewport."""
         offscreen_button = self.driver.find_element(*self.OFFSCREEN_BTN)
 
         return self.driver.execute_script(
