@@ -4,5 +4,7 @@ from sample_app_selenium import SampleAppPage
 
 def test_sample_app_selenium(driver: WebDriver):
     sample_app_page = SampleAppPage(driver)
+    page = BasePage(driver)
 
-    driver.get("")
+    driver.get("http://uitestingplayground.com/sampleapp")
+    assert page.is_loaded()
