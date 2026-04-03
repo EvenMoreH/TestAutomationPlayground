@@ -1,10 +1,13 @@
 from selenium.webdriver.remote.webdriver import WebDriver
+from exercises.base_page_selenium import BasePage
 from dynamic_table import DynamicTablePage
 
 def test_compare_cpu_load(driver: WebDriver):
     table_page = DynamicTablePage(driver)
+    page = BasePage(driver)
 
     driver.get("http://uitestingplayground.com/dynamictable")
+    assert page.is_loaded()
 
     cpu_load_table = table_page.get_cell_value("Chrome", "CPU")
     cpu_load_banner = table_page.get_yellow_label_text()

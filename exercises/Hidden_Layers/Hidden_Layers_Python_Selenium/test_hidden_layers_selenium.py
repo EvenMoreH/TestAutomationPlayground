@@ -1,6 +1,7 @@
 import pytest
 from selenium.common import ElementClickInterceptedException
 from selenium.webdriver.remote.webdriver import WebDriver
+from exercises.base_page_selenium import BasePage
 
 from hidden_layers_selenium import HiddenLayersPage
 
@@ -12,8 +13,10 @@ def test_hidden_layers_green_btn(driver: WebDriver):
     no longer the top clickable element from the user's perspective.
     """
     hidden_layers_page = HiddenLayersPage(driver)
+    page = BasePage(driver)
 
     driver.get("http://uitestingplayground.com/hiddenlayers")
+    assert page.is_loaded()
     hidden_layers_page.click_button_green()
     with pytest.raises(ElementClickInterceptedException):
         hidden_layers_page.click_button_green()
@@ -26,7 +29,9 @@ def test_hidden_layers_green_and_blue_btn(driver: WebDriver):
     working with overlapping elements instead of retrying the hidden button.
     """
     hidden_layers_page = HiddenLayersPage(driver)
+    page = BasePage(driver)
 
     driver.get("http://uitestingplayground.com/hiddenlayers")
+    assert page.is_loaded()
     hidden_layers_page.click_button_green()
     hidden_layers_page.click_button_blue()

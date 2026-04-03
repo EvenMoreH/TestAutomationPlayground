@@ -1,4 +1,5 @@
 from selenium.webdriver.remote.webdriver import WebDriver
+from exercises.base_page_selenium import BasePage
 from _Main_Page.main_page import MainPage
 from load_delay_selenium import LoadDelayPage
 

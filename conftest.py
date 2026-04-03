@@ -20,7 +20,7 @@ def driver():
     options.add_argument("--incognito")
     options.set_capability("acceptInsecureCerts", True)
     options.add_argument("--ignore-certificate-errors")
-    # options.add_argument("--headless=new")
+    options.add_argument("--headless=new")
 
     driver = webdriver.Chrome(options=options)
     # Prefer explicit waits in page objects/helpers for predictable timing.
