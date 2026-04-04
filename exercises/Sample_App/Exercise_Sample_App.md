@@ -4,6 +4,7 @@ Fill in and submit the form. For successfull login use any non-empty user name a
 ## Scenario
 - Log in
 - Log out
+- Incorrect credentials
 
 ## Link
 http://uitestingplayground.com/sampleapp

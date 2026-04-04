@@ -2,13 +2,14 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from visibility_selenium import VisibilityPage
 from exercises.base_page_selenium import BasePage
 
+URL = "http://uitestingplayground.com/visibility"
 
 def test_removed_btn_visibility_selenium(driver: WebDriver):
     """Verify the removed button becomes invisible after clicking Hide."""
     visibility_page = VisibilityPage(driver)
     page = BasePage(driver)
 
-    driver.get("http://uitestingplayground.com/visibility")
+    driver.get(URL)
     assert page.is_loaded()
 
     visibility_page.hide_btn_click()
@@ -21,7 +22,7 @@ def test_zero_width_btn_visibility_selenium(driver: WebDriver):
     visibility_page = VisibilityPage(driver)
     page = BasePage(driver)
 
-    driver.get("http://uitestingplayground.com/visibility")
+    driver.get(URL)
     assert page.is_loaded()
 
     visibility_page.hide_btn_click()
@@ -34,7 +35,7 @@ def test_overlapped_btn_visibility_selenium(driver: WebDriver):
     visibility_page = VisibilityPage(driver)
     page = BasePage(driver)
 
-    driver.get("http://uitestingplayground.com/visibility")
+    driver.get(URL)
     assert page.is_loaded()
 
     visibility_page.hide_btn_click()
@@ -47,7 +48,7 @@ def test_opacity_zero_btn_visibility_selenium(driver: WebDriver):
     visibility_page = VisibilityPage(driver)
     page = BasePage(driver)
 
-    driver.get("http://uitestingplayground.com/visibility")
+    driver.get(URL)
     assert page.is_loaded()
 
     visibility_page.hide_btn_click()
@@ -60,7 +61,7 @@ def test_visibility_hidden_btn_visibility_selenium(driver: WebDriver):
     visibility_page = VisibilityPage(driver)
     page = BasePage(driver)
 
-    driver.get("http://uitestingplayground.com/visibility")
+    driver.get(URL)
     assert page.is_loaded()
 
     visibility_page.hide_btn_click()
@@ -73,7 +74,7 @@ def test_none_btn_visibility_selenium(driver: WebDriver):
     visibility_page = VisibilityPage(driver)
     page = BasePage(driver)
 
-    driver.get("http://uitestingplayground.com/visibility")
+    driver.get(URL)
     assert page.is_loaded()
 
     visibility_page.hide_btn_click()
@@ -89,7 +90,7 @@ def test_offscreen_btn_visibility_selenium(driver: WebDriver):
     visibility_page = VisibilityPage(driver)
     page = BasePage(driver)
 
-    driver.get("http://uitestingplayground.com/visibility")
+    driver.get(URL)
     assert page.is_loaded()
 
     visibility_page.hide_btn_click()
