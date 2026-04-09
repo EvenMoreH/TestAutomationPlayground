@@ -9,11 +9,8 @@ def test_fill_out_form_overlapped_element_selenium(driver: WebDriver):
     driver.get("http://uitestingplayground.com/overlapped")
     assert page.is_loaded()
 
-    oep.fill_out_id(oep.ID_FIELD)
-    oep.scroll(oep.NAME_FIELD, 0, 50)
-    oep.fill_out_name(oep.NAME_FIELD)
+    oep.fill_out_id()
+    oep.fill_out_name()
 
-    id_value = oep.field_value(oep.ID_FIELD)
-    assert id_value == TEST_ID_VALUE
-    name_value = oep.field_value(oep.NAME_FIELD)
-    assert name_value == TEST_NAME_VALUE
+    assert oep.get_id_value() == TEST_ID_VALUE
+    assert oep.get_name_value() == TEST_NAME_VALUE
