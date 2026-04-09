@@ -14,10 +14,11 @@ class VisibilityPage:
     NONE_BTN = (By.ID, "notdisplayedButton")
     OFFSCREEN_BTN = (By.ID, "offscreenButton")
 
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver: WebDriver) -> None:
         self.driver = driver
 
-    def _wait(self, timeout: int = 5):
+    def _wait(self, timeout: int = 5) -> WebDriverWait:
+        """Create a wait helper for page interactions."""
         return WebDriverWait(self.driver, timeout)
 
     def hide_btn_click(self) -> None:
