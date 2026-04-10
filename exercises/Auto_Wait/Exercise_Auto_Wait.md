@@ -1,7 +1,0 @@
-# Auto Wait
-
-
-## Scenario
-
-
-## Link
