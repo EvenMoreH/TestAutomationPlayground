@@ -52,7 +52,7 @@
                 <version>3.13.0</version>
                 <configuration>
                     <testIncludes>
-                        <testInclude>**/*_Java_Playwright/**/*.java</testInclude>
+                        <testInclude>**/java_playwright/**/*.java</testInclude>
                     </testIncludes>
                 </configuration>
             </plugin>

@@ -1,0 +1,11 @@
+# Frames
+Working with frames requires switching context. Automation tools need to locate frames and switch into them before interacting with elements inside. This page contains nested frames with identical button markup to practice element location strategies.
+
+## Scenario
+- Switch to the outer frame (level 1).
+- Find and click each button using different locator strategies.
+- Switch to the inner frame (level 2) nested inside the outer frame.
+- Find and click the same buttons (identical markup) in the inner frame.
+
+## Link
+http://uitestingplayground.com/frames
