@@ -20,6 +20,9 @@ wheels/
 # Agent instructions
 .github/instructions/
 
+# Skills
+.github/skills
+
 # Java build output
 target/
 
