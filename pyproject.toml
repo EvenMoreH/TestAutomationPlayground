@@ -11,7 +11,7 @@ dependencies = [
 ]
 
 [tool.pytest.ini_options]
-addopts = "-v -s"
+addopts = "-v -s --tb=short"
 # Discover tests in all nested folders matching these patterns
 testpaths = ["exercises"]
 python_files = ["test_*.py"]
