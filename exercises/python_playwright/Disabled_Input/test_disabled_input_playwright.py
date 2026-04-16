@@ -14,4 +14,4 @@ def test_wait_for_enabled_input(page: Page) -> None:
 
     disabled_input.click_enable_edit_button()
     disabled_input.input_text(TEST_TEXT)
-    expect (disabled_input.status_field).to_contain_text(TEST_TEXT)
+    expect(disabled_input.status_field).to_contain_text(TEST_TEXT)

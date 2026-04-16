@@ -30,6 +30,10 @@ class FramesPage:
         """Wait for a button to be clickable and click it."""
         self._wait().until(EC.element_to_be_clickable(button)).click()
 
+    def switch_to_parent_frame(self) -> None:
+        """Switch the driver context to the parent frame."""
+        self.driver.switch_to.parent_frame()
+
     def switch_to_outer_frame(self) -> None:
         """Switch the driver context to the outer frame."""
         self._switch_frame(self.OUTER_FRAME)
@@ -38,13 +42,15 @@ class FramesPage:
         """Switch the driver context to the inner frame."""
         self._switch_frame(self.INNER_FRAME)
 
-    def wait_for_result_update(self, expected_result: str) -> None:
-        """Wait until the result banner contains the expected text."""
+    def assert_result(self, expected_result: str) -> None:
+        """
+        Asserts that the result banner displays the expected text.
+        Waits for the result banner element to contain the expected text,
+        then verifies that the element's text matches the expected result.
+        """
         self._wait(2).until(EC.text_to_be_present_in_element(self.RESULT_BANNER, expected_result))
-
-    def read_result(self) -> str:
-        """Return the current text of the result banner."""
-        return self._wait().until(EC.presence_of_element_located(self.RESULT_BANNER)).text
+        result = self.driver.find_element(*self.RESULT_BANNER).text
+        assert result == expected_result
 
     def click_edit_button(self) -> None:
         """Click the Edit button."""

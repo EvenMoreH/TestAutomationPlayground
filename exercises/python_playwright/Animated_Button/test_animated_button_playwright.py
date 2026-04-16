@@ -12,9 +12,9 @@ def test_click_moving_button(page: Page) -> None:
     animated_button_page.open()
     navbar.page_loaded()
 
-    expect (animated_button_page.status_message).to_contain_text("---")
+    expect(animated_button_page.status_message).to_contain_text("---")
 
     animated_button_page.click_start_button()
     animated_button_page.click_moving_target()
 
-    expect (animated_button_page.status_message).to_contain_text(BUTTON_CLICK_RESULT)
+    expect(animated_button_page.status_message).to_contain_text(BUTTON_CLICK_RESULT)

@@ -11,4 +11,4 @@ def test_hidden_layers_button(page: Page) -> None:
     navbar.page_loaded()
 
     click_page.click_button()
-    expect (click_page.button).to_contain_class("btn-success")
+    expect(click_page.button).to_contain_class("btn-success")

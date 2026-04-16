@@ -12,8 +12,8 @@ def test_client_side_delay(page: Page) -> None:
     csd_page.open()
     navbar.page_loaded()
 
-    expect (csd_page.success_label).not_to_be_visible()
+    expect(csd_page.success_label).not_to_be_visible()
 
     csd_page.trigger_client_logic()
 
-    expect (csd_page.success_label).to_contain_text(SUCCESS_MESSAGE, timeout=20000)
+    expect(csd_page.success_label).to_contain_text(SUCCESS_MESSAGE, timeout=20000)
