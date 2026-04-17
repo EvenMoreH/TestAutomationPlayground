@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 from exercises.python_playwright.navbar import Navbar
 from verify_text_playwright import VerifyTextPage
 
