@@ -4,13 +4,17 @@ from exercises.python_playwright.navbar import Navbar
 from alerts_playwright import AlertsPage
 
 
-def test_alert_button(page: Page) -> None:
+@pytest.fixture
+def alerts_page(page: Page) -> AlertsPage:
     alerts_page = AlertsPage(page)
     navbar = Navbar(page)
 
     alerts_page.open()
     navbar.page_loaded()
 
+    return alerts_page
+
+def test_alert_button(alerts_page: AlertsPage) -> None:
     alerts_page.click_alert()
 
 
@@ -21,13 +25,7 @@ def test_alert_button(page: Page) -> None:
             (False, "No"),
         ]
 )
-def test_confirm_button(page: Page, accept: bool, expected: str) -> None:
-    alerts_page = AlertsPage(page)
-    navbar = Navbar(page)
-
-    alerts_page.open()
-    navbar.page_loaded()
-
+def test_confirm_button(alerts_page: AlertsPage, accept: bool, expected: str) -> None:
     alert_message = alerts_page.click_confirm(accept)
     assert alert_message == expected
 
@@ -42,12 +40,6 @@ def test_confirm_button(page: Page, accept: bool, expected: str) -> None:
             (" ", " "),
         ]
 )
-def test_prompt_button(page: Page, input_text: str, expected: str) -> None:
-    alerts_page = AlertsPage(page)
-    navbar = Navbar(page)
-
-    alerts_page.open()
-    navbar.page_loaded()
-
+def test_prompt_button(alerts_page: AlertsPage, input_text: str, expected: str) -> None:
     alert_message = alerts_page.click_prompt(input_text)
     assert alert_message == "User value: " + expected
