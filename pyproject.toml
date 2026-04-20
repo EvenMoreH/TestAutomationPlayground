@@ -1,7 +1,7 @@
 [project]
 name = "testautomationplayground"
 version = "0.1.0"
-description = "UI Test Automation Playground - Python Selenium & Playwright exercises"
+description = "UI Test Automation Playground - Python Selenium, Python Playwright, and JavaScript Playwright exercises"
 requires-python = ">=3.12"
 dependencies = [
     "pytest",

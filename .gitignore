@@ -9,8 +9,16 @@ wheels/
 # Virtual environments
 .venv
 
+# Node.js dependencies
+node_modules/
+
 # Pytest
 .pytest_cache/
+
+# Playwright output
+playwright-report/
+test-results/
+.playwright/
 
 # IDE
 .idea/
@@ -23,7 +31,7 @@ wheels/
 # Skills
 .github/skills
 
-# Java build output
+# Legacy generated output
 target/
 
 # OS

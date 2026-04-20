@@ -1,0 +1,14 @@
+{
+  "name": "testautomationplayground",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UI Test Automation Playground - Python Selenium, Python Playwright, and JavaScript Playwright exercises",
+  "scripts": {
+    "test:javascript": "playwright test exercises/javascript_playwright",
+    "test:javascript:headed": "playwright test exercises/javascript_playwright --headed",
+    "test:javascript:ui": "playwright test exercises/javascript_playwright --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0"
+  }
+}

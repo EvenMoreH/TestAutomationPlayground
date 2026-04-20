@@ -1,13 +1,17 @@
 # How to Run Tests - Quick Reference
 
-## Python Setup (one-time)
+## Setup
 
 ```bash
-# Install dependencies (creates .venv automatically)
+# Python dependencies (creates .venv automatically)
 uv sync
+
+# JavaScript dependencies
+npm install
 
 # Install Playwright browser binaries
 uv run playwright install --with-deps chromium
+npx playwright install --with-deps chromium
 ```
 
 ---
@@ -50,24 +54,26 @@ Fixture: `page` (built-in from pytest-playwright)
 
 ---
 
-## Java Playwright
+## JavaScript Playwright
 
 ```bash
-# All Java tests
-mvn test
+# All JavaScript Playwright tests
+npm run test:javascript
 
-# One specific test class
-mvn test -Dtest=DynamicIdTest
+# One exercise folder
+npx playwright test exercises/javascript_playwright/Visibility
 
-# Tests matching a pattern
-mvn test -Dtest="*Click*"
+# Run headed (visible browser)
+npm run test:javascript:headed
 
-# Clean build + test
-mvn clean test
+# Open Playwright UI mode
+npm run test:javascript:ui
 ```
 
-Test files: `exercises/java_playwright/<Exercise>/*Test.java`
-Framework: JUnit 5
+Test files: `exercises/javascript_playwright/<Exercise>/test_*_playwright.spec.js`
+Exercise files: `exercises/javascript_playwright/<Exercise>/*_playwright.js`
+Framework: Playwright Test
+Note: JavaScript exercise files are intentionally empty so you can write the solutions yourself.
 
 ---
 
@@ -77,6 +83,6 @@ Framework: JUnit 5
 # Python (both Selenium + Playwright)
 uv run pytest exercises/python_selenium exercises/python_playwright -v
 
-# Java
-mvn test
+# JavaScript Playwright
+npm run test:javascript
 ```
