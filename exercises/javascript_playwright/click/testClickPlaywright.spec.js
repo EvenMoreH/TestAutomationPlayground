@@ -10,5 +10,5 @@ test("click button", async ({ page }) => {
     await navbar.pageLoaded();
 
     await clickPage.clickButton();
-    expect(clickPage.button).toContainClass("btn-success");
+    await expect(clickPage.button).toContainClass("btn-success");
 });
