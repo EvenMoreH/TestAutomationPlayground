@@ -1,7 +1,7 @@
 export class AlertsPage {
     /**
      *
-     * @param {import(@playwright).Page} page
+     * @param {import('@playwright/test').Page} page
      */
     constructor(page) {
         this.page = page;
@@ -9,7 +9,7 @@ export class AlertsPage {
         this.confirmButton = page.locator("#confirmButton");
         this.promptButton = page.locator("#promptButton");
     }
-    async openPage() {
+    async openExercisePage() {
         await this.page.goto("http://uitestingplayground.com/alerts");
     }
 

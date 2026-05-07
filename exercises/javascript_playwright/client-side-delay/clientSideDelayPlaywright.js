@@ -10,7 +10,7 @@ export class ClientSideDelayPage {
         });
         this.successMessage = page.locator(".bg-success");
     }
-    async openPage() {
+    async openExercisePage() {
         await this.page.goto("http://uitestingplayground.com/clientdelay");
     }
 

@@ -6,7 +6,7 @@ test("click button", async ({ page }) => {
     const clickPage = new ClickPage(page);
     const navbar = new Navbar(page);
 
-    await clickPage.openPage();
+    await clickPage.openExercisePage();
     await navbar.pageLoaded();
 
     await clickPage.clickButton();

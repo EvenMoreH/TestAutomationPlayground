@@ -6,7 +6,7 @@ test("confirm alert for alert button", async ({ page }) => {
     const alertsPage = new AlertsPage(page);
     const navbar = new Navbar(page);
 
-    await alertsPage.openPage();
+    await alertsPage.openExercisePage();
     await navbar.pageLoaded();
 
     await alertsPage.clickAlertButton();
@@ -16,7 +16,7 @@ test("confirm alert for confirm button", async ({ page }) => {
     const alertsPage = new AlertsPage(page);
     const navbar = new Navbar(page);
 
-    await alertsPage.openPage();
+    await alertsPage.openExercisePage();
     await navbar.pageLoaded();
 
     await alertsPage.clickConfirmButton(true);
@@ -28,7 +28,7 @@ test("dismiss alert for confirm button", async ({ page }) => {
     const alertsPage = new AlertsPage(page);
     const navbar = new Navbar(page);
 
-    await alertsPage.openPage();
+    await alertsPage.openExercisePage();
     await navbar.pageLoaded();
 
     await alertsPage.clickConfirmButton(false);
@@ -50,7 +50,7 @@ promptInputs.forEach((input) => {
         const alertsPage = new AlertsPage(page);
         const navbar = new Navbar(page);
 
-        await alertsPage.openPage();
+        await alertsPage.openExercisePage();
         await navbar.pageLoaded();
 
         await alertsPage.clickPromptButton(input);

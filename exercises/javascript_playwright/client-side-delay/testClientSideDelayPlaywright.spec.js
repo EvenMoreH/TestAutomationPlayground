@@ -6,7 +6,7 @@ test("click button triggering client side logic", async ({ page }) => {
     const navbar = new Navbar(page);
     const clientSideDelayPage = new ClientSideDelayPage(page);
 
-    await clientSideDelayPage.openPage();
+    await clientSideDelayPage.openExercisePage();
     await navbar.pageLoaded();
 
     await clientSideDelayPage.clickButtonTriggeringClientSideLogic();

@@ -8,7 +8,7 @@ export class ClickPage {
         this.button = page.locator("#badButton");
     }
 
-    async openPage() {
+    async openExercisePage() {
         await this.page.goto("http://uitestingplayground.com/click");
     }
 

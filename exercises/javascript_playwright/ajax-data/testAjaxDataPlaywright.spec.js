@@ -6,7 +6,7 @@ test("click AJAX button and check for success message", async ({ page }) => {
     const ajaxDataPage = new AJAXDataPage(page);
     const navbar = new Navbar(page);
 
-    await ajaxDataPage.openPage();
+    await ajaxDataPage.openExercisePage();
     await navbar.pageLoaded();
 
     await ajaxDataPage.clickAJAXButton();
