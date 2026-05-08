@@ -10,7 +10,3 @@ class VerifyTextPage:
     def open(self) -> None:
         """Open the Verify Text exercise page."""
         self.page.goto("http://uitestingplayground.com/verifytext")
-
-    def find_and_return_welcome_message(self) -> str:
-        """Return the welcome message text from the page."""
-        return self.welcome_msg.inner_text()
