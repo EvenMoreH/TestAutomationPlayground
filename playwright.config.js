@@ -12,6 +12,8 @@ module.exports = defineConfig({
         baseURL: "http://uitestingplayground.com",
         trace: "on-first-retry",
         screenshot: "only-on-failure",
+        ignoreHTTPSErrors: true, // Ignore HTTPS errors for clipboard testing
+        permissions: ["clipboard-read", "clipboard-write"],
     },
     projects: [
         {

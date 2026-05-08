@@ -7,4 +7,4 @@ This is a page with a Shadow DOM component guid-generator. Using it one can gene
 - Then execute the test to make sure that the assertion step is not failing.
 
 ## Link
-http://uitestingplayground.com/shadowdom
+https://uitestingplayground.com/shadowdom
